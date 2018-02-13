@@ -1,0 +1,8 @@
+{
+  "expo": {
+    "name": "PhotoViewer",
+    "slug": "my-app",
+    "sdkVersion": "25.0.0",
+    "privacy": "public"
+  }
+}
