@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, ActivityIndicator, TouchableWithoutFeedback } from 'react-native';
 
 const styles = StyleSheet.create({
         container: {
@@ -24,13 +24,13 @@ const styles = StyleSheet.create({
         const { status, image, width, height, onTap } = props;
         return <View style={styles.container}>
             {image 
-                ? <TouchableOpacity style={styles.image} onPress={() => onTap(image.ID)}>
+                ? <TouchableWithoutFeedback style={styles.image} onPress={() => onTap(image.ID)}>
                     <Image
                         style={styles.image}
                         source={{uri: image.URL}}
                         resizeMode="cover"
                     />
-                    </TouchableOpacity>
+                    </TouchableWithoutFeedback>
                 : status.isLoading
                     ? <ActivityIndicator />
                     : status.error

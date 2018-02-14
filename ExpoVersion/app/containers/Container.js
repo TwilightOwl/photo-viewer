@@ -42,11 +42,9 @@ class AppComponent extends React.Component {
     constructor(props) {
         super(props);
         BackHandler.addEventListener('hardwareBackPress', () => {
-            if (!this.props.images.currentImage) {
-                this.props.closeCurrentImage();
-                return true;
-            }
-            return false;
+            if (!this.props.images.currentImage) return false;
+            this.props.closeCurrentImage();
+            return true;
         });
     }
 
