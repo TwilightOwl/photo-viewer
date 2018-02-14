@@ -20,7 +20,8 @@ class MockRESTServer {
 			.then(result => result.json())
 			.then(parsed => (parsed.url ? { ID: parsed.id, URL: parsed.url, title: parsed.title } : {}))
 			.catch(error => error);
-		return new Promise((resolve, reject) => setTimeout(() => resolve(request()), this._getRandomFakeDelayMlsec()));
+		return request();
+		//return new Promise((resolve, reject) => setTimeout(() => resolve(request()), this._getRandomFakeDelayMlsec()));
 	}
 
 	receiveImageCount() {
