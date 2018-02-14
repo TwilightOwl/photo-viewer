@@ -72,12 +72,12 @@
         "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
-        "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_action_menu_item_layout.xml"
-    },
-    {
         "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
         "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/select_dialog_item_material.xml"
+    },
+    {
+        "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
+        "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_action_menu_item_layout.xml"
     },
     {
         "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",

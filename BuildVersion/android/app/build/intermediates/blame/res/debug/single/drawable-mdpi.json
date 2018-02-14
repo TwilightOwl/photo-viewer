@@ -1,15 +1,15 @@
 [
     {
+        "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
         "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_btn_check_to_on_mtrl_015.png",
         "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_list_pressed_holo_light.9.png",
         "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_pressed_holo_light.9.png"
-    },
-    {
-        "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_textfield_search_default_mtrl_alpha.9.png",
-        "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
         "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png",
@@ -96,12 +96,12 @@
         "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_voice_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_ic_commit_search_api_mtrl_alpha.png",
-        "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_commit_search_api_mtrl_alpha.png"
-    },
-    {
         "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_btn_switch_to_on_mtrl_00001.9.png",
         "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
         "merged": "/home/den05/react-native/photo-viewer/BuildVersion/android/app/build/intermediates/res/merged/debug/drawable-mdpi/abc_ic_search_api_mtrl_alpha.png",
