@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ActivityIndicator, TouchableWithoutFeedback } from 'react-native';
+import { connect } from 'react-redux';
+import actionMapping from '../actions';
+import { StyleSheet, Text, View, Image, ActivityIndicator, TouchableWithoutFeedback, Dimensions } from 'react-native';
 
 const styles = StyleSheet.create({
         container: {
@@ -9,7 +11,7 @@ const styles = StyleSheet.create({
             top: 0,
             left: 0,
             bottom: 0,
-            right: 0,
+            right: 0
         },
         image: {
             position: 'absolute',
@@ -19,25 +21,34 @@ const styles = StyleSheet.create({
             right: 3
         },
     }),
+    getMapStateToProps = imageID =>
+        state => ({
+            imageID,
+            loadedData: state.images.loadedImages[imageID],
+        }),
+    mapDispatchToProps = actionMapping(['showImageByID']),
 
     ImageItem = props => {
-        const { status, image, width, height, onTap } = props;
+        const { loadedData, imageID } = props;
         return <View style={styles.container}>
-            {image 
-                ? <TouchableWithoutFeedback style={styles.image} onPress={() => onTap(image.ID)}>
-                    <Image
-                        style={styles.image}
-                        source={{uri: image.URL}}
-                        resizeMode="cover"
-                    />
-                    </TouchableWithoutFeedback>
-                : status.isLoading
-                    ? <ActivityIndicator />
-                    : status.error
-                        ? <Text>ERR</Text>
-                        : null
+            {loadedData
+                ? loadedData.image
+                    ? <TouchableWithoutFeedback style={styles.image} onPress={() => props.showImageByID(loadedData.image.ID)}>
+                        <Image
+                            style={styles.image}
+                            source={{uri: loadedData.image.URL}}
+                            resizeMode="cover"
+                        />
+                        </TouchableWithoutFeedback>
+                    : loadedData.status.isLoading
+                        ? <ActivityIndicator />
+                        : loadedData.status.error
+                            ? <Text>ERR</Text>
+                            : null
+                : null
             }
         </View>;
     };
 
-export default ImageItem;
+const getComponent = imageID => (connect(getMapStateToProps(imageID), mapDispatchToProps)(ImageItem));
+export default getComponent;

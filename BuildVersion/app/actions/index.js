@@ -36,3 +36,28 @@ export const goLast = createAction('GO_LAST');
 
 export const showImageByID = createAction('SHOW_IMAGE_BY_ID');
 export const closeCurrentImage = createAction('CLOSE_CURRENT_IMAGE');
+
+const actions = {
+		imageCountLoading,
+		imageCountSuccess,
+		imageCountError,
+		receiveImageCount,
+		imageLoading,
+		imageSuccess,
+		imageError,
+		receiveImagesAsync,
+		goFirst,
+		goPrevious,
+		goPage,
+		goNext,
+		goLast,
+		showImageByID,
+		closeCurrentImage
+	},
+	actionMapping = 
+		actionNameList => 
+			dispatch => 
+				actionNameList
+					.reduce((acc, key) => ({ ...acc, [key]: (...args) => dispatch(actions[key](...args)) }), {}); 
+
+export default actionMapping;

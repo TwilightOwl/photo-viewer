@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="578204d7-feed-4f0e-9146-2104f17c0def" name="Default" comment="" />
+    <list default="true" id="771c9291-7228-45d0-a3f1-d0528d440464" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -1795,10 +1795,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1813,11 +1812,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="sync.plugin.last.upgrade.timestamp" value="1518590778296" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1518713311782" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1902,7 +1902,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518590904336" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518713362550" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2002,7 +2002,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518590904336" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518713362551" />
       </method>
     </configuration>
     <list size="1">
@@ -2032,11 +2032,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="578204d7-feed-4f0e-9146-2104f17c0def" name="Default" comment="" />
-      <created>1518590772213</created>
+      <changelist id="771c9291-7228-45d0-a3f1-d0528d440464" name="Default" comment="" />
+      <created>1518713286849</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1518590772213</updated>
+      <updated>1518713286849</updated>
     </task>
     <servers />
   </component>
