@@ -2,15 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, View, StatusBar, BackHandler } from 'react-native';
 import _ from 'lodash';
-import * as actions from '../actions';
-import ImageItem from '../components/ImageItem';
+import actionMapping from '../actions';
 import ImageLayout from '../components/ImageLayout';
-import PageLayout from '../components/PageLayout';
+import PageList from '../components/PageList';
 import ButtonLayout from '../components/ButtonLayout';
 
 const styles = StyleSheet.create({
         container: {
             flex: 1,
+            backgroundColor: '#444',
         },
         content: {
             position: 'absolute',
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
             right: 0,
             left: 0,
             bottom: 35,
-            backgroundColor: '#444',
         },
         statusBarLayout: {
             position: 'absolute',
@@ -30,19 +29,22 @@ const styles = StyleSheet.create({
         }
     }),
     mapStateToProps = state => ({
-        pages: { ...state.pages },
-        images: { ...state.images }
+        currentView: state.view,
+        limit: state.pages.limit,
+        pageCount: state.pages.pageCount,
+        imageCount: state.pages.imageCount
     }),
-    mapDispatchToProps = dispatch => 
-        Object.keys(actions)
-            .reduce((acc, key) => ({ ...acc, [key]: (...args) => dispatch(actions[key](...args)) }), {});   
+    mapDispatchToProps = actionMapping([
+        'receiveImageCount', 
+        'closeCurrentImage'
+    ]);
 
 class AppComponent extends React.Component {
 
     constructor(props) {
         super(props);
         BackHandler.addEventListener('hardwareBackPress', () => {
-            if (!this.props.images.currentImage) return false;
+            if (this.props.currentView === 'PAGE_VIEW') return false;
             this.props.closeCurrentImage();
             return true;
         });
@@ -50,70 +52,20 @@ class AppComponent extends React.Component {
 
     componentDidMount() {
         this.props.receiveImageCount();
-        this.props.receiveImagesAsync(this.props.pages.offset, this.props.pages.limit);
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (this.props.pages.offset !== nextProps.pages.offset ||
-            this.props.pages.limit !== nextProps.pages.limit) {
-            this.props.receiveImagesAsync(nextProps.pages.offset, nextProps.pages.limit);
-        }
     }
 
     render() {
-        const { offset, limit, currentPage, pageCount } = this.props.pages,
-            { currentImage, loadedImages } = this.props.images;
-
+        const { currentView, limit, pageCount, imageCount } = this.props;
         return <View style={styles.container}>
-                <View style={styles.statusBarLayout}>
-                    <StatusBar/>
-                </View>
-                {currentImage
-                    ? <ImageLayout width={300} height={300} 
-                        URL={loadedImages[currentImage].image.URL} onTap={this.props.closeCurrentImage}/>
-                    : [
-                        <View key="0" style={styles.content}>
-                            <PageLayout rows={5} columns={2} 
-                                images={loadedImages} 
-                                imagesIDList={_.range(offset, offset + limit)}
-                                showImageAction={this.props.showImageByID}
-                            />
-                        </View>,
-                        <ButtonLayout  key="1"
-                            currentPage={currentPage} 
-                            isFirst={currentPage <= 0}
-                            isLast={currentPage >= pageCount - 1}
-                            goFirst={this.props.goFirst}
-                            goPrevious={this.props.goPrevious}
-                            goNext={this.props.goNext}
-                            goLast={this.props.goLast}
-                        />
-                    ]
-                }
-        </View>;
-
-        
-        return <View style={styles.container}>
-            <View style={styles.content}>
-                {currentImage
-                    ? <ImageLayout width={300} height={300} 
-                        URL={loadedImages[currentImage].image.URL} onTap={this.props.closeCurrentImage}/>
-                    : <PageLayout rows={5} columns={2} 
-                        images={loadedImages} 
-                        imagesIDList={_.range(offset, offset + limit)}
-                        showImageAction={this.props.showImageByID}
-                    />
-                }
+            <View style={styles.statusBarLayout}>
+                <StatusBar/>
             </View>
-            <ButtonLayout 
-                currentPage={currentPage} 
-                isFirst={currentPage <= 0}
-                isLast={currentPage >= pageCount - 1}
-                goFirst={this.props.goFirst}
-                goPrevious={this.props.goPrevious}
-                goNext={this.props.goNext}
-                goLast={this.props.goLast}
-            />
+            {[ <View key="0" style={styles.content}>
+                    <PageList />
+                </View>,
+                <ButtonLayout key="1" />,
+                currentView === 'IMAGE_VIEW' ? <ImageLayout key="2" /> : null
+            ]}
         </View>;
     }
 }

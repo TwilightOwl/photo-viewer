@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import actionMapping from '../actions';
+import { StyleSheet, View, Image, TouchableWithoutFeedback } from 'react-native';
 
 const styles = StyleSheet.create({
         container: {
@@ -17,18 +19,37 @@ const styles = StyleSheet.create({
             right: 3
         },
     }),
+    mapStateToProps = state => ({
+        currentImage: state.images.currentImage,
+        loadedImages: state.images.loadedImages
+    }),
+    mapDispatchToProps = actionMapping([
+        'closeCurrentImage'
+    ]);
 
-    ImageLayout = props => {
-        const { URL, width, height, onTap } = props;
+class ImageLayout extends React.Component {
+
+    shouldComponentUpdate(nextProps) {
+        if (this.props.currentImage !== nextProps.currentImage) return true;
+        return false;
+    }
+
+    render() {
+        const { currentImage, loadedImages, closeCurrentImage } = this.props;
         return <View style={styles.container}>
-            <TouchableOpacity style={styles.image} onPress={onTap} activeOpacity={1}>
+            <TouchableWithoutFeedback 
+                style={styles.image} 
+                onPress={closeCurrentImage} 
+            >
                 <Image
                     style={styles.image}
-                    source={{ uri: URL }}
+                    source={{ uri: loadedImages[currentImage].image.URL }}
                     resizeMode="center"
                 />
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
         </View>;
-    };
+    }
 
-export default ImageLayout;
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ImageLayout);
